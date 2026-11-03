@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>eXile Community – RF Online Next</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#07090c;--p1:#10151b;--p2:#171e26;--line:#2a3541;--tx:#d9e0e7;--mut:#8593a1;--ex:#ff2e4d;--sk:#27e0ff;--bl:#3a7bff;--ac:var(--ex);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 15px/1.5 "Chakra Petch",system-ui,sans-serif;
+background-image:linear-gradient(rgba(39,224,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(39,224,255,.035) 1px,transparent 1px);background-size:40px 40px}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sk);outline-offset:2px}
+body.sk{--ac:var(--sk)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:10px 20px;background:rgba(7,9,12,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.logo{font-weight:700;font-size:20px;letter-spacing:.5px}.logo b{color:var(--ex)}
+.sw{display:flex;border:1px solid var(--line);clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.sw a,.tabs button{padding:6px 14px;color:var(--mut);background:none;border:0;cursor:pointer}
+.sw a.on{background:var(--p2);color:#fff}.sw a.ex.on{box-shadow:inset 0 -2px var(--ex)}.sw a.sk.on{box-shadow:inset 0 -2px var(--sk)}
+.sp{flex:1}
+.role{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:13px}
+.role select{background:var(--p1);border:1px solid var(--line);padding:5px 8px}
+.banner{background:#1b1608;color:#f0c24b;font-size:13px;text-align:center;padding:5px 12px;border-bottom:1px solid #3a2f0e}
+main{max-width:1150px;margin:0 auto;padding:24px 20px 60px}
+.hero{position:relative;padding:56px 28px;border:1px solid var(--line);background:radial-gradient(900px 300px at 85% 0,rgba(255,46,77,.22),transparent),radial-gradient(700px 300px at 0 100%,rgba(39,224,255,.16),transparent),var(--p1);overflow:hidden;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px))}
+.hero h1{font-size:clamp(30px,6vw,62px);line-height:1.02;margin:0 0 12px;letter-spacing:1px}
+.hero p{max-width:560px;color:var(--mut);margin:0 0 20px}
+.btn{display:inline-block;border:1px solid var(--ac);background:rgba(255,255,255,.03);padding:8px 18px;cursor:pointer;transition:background .15s,box-shadow .15s}
+.btn:hover{background:var(--ac);color:#000;box-shadow:0 0 18px var(--ac)}
+.btn.sm{padding:3px 10px;font-size:13px}.btn.ghost{border-color:var(--line)}.btn[disabled]{opacity:.4;pointer-events:none}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.panel{background:var(--p1);border:1px solid var(--line);padding:18px;border-left:3px solid var(--ac)}
+.panel h2,.panel h3{margin:0 0 10px;font-size:18px}
+h2.sec{font-size:22px;margin:34px 0 14px}
+.gc.ex{--ac:var(--ex)}.gc.sk{--ac:var(--sk)}
+.gc .big{font-size:30px;font-weight:700;color:var(--ac)}
+.stat{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 14px}.stat div{min-width:80px}.stat small{display:block;color:var(--mut)}.stat b{font-size:18px}
+.mut{color:var(--mut)}.tag{display:inline-block;padding:0 8px;border:1px solid var(--line);font-size:12px;color:var(--mut)}
+.tag.pin{border-color:var(--ex);color:var(--ex)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:18px 0;overflow-x:auto}
+.tabs button.on{color:#fff;box-shadow:inset 0 -2px var(--ac)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.bar input,.bar select,textarea{background:var(--p1);border:1px solid var(--line);padding:7px 10px}
+.bar input{flex:1;min-width:160px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--mut);font-weight:500;font-size:13px}
+tr.top1 td{background:rgba(255,215,90,.08)}tr.top2 td{background:rgba(190,200,210,.07)}tr.top3 td{background:rgba(205,127,50,.08)}
+.up{color:#4be08a}.dn{color:var(--ex)}
+.av{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:8px;background:var(--p2);border:1px solid var(--ac);font-size:12px;vertical-align:middle}
+.rar{font-size:12px;padding:0 8px;border:1px solid}.rar.Epic{color:#b47cff}.rar.Legendary{color:#ffb02e}.rar.Rare{color:var(--bl)}
+.item{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.item .ic{width:46px;height:46px;display:grid;place-items:center;background:var(--p2);border:1px solid var(--line);font-size:20px}.item .in{flex:1;min-width:180px}
+.st{font-size:12px;padding:1px 8px;border:1px solid var(--line)}.st.Pending{color:#f0c24b}.st.Awarded{color:#4be08a}.st.NotSelected{color:var(--mut)}
+.fi{width:100%;background:var(--p2);border:1px solid var(--line);padding:7px;margin-bottom:10px}
+dialog{background:var(--p1);color:var(--tx);border:1px solid var(--ac);max-width:440px;width:92%;padding:22px}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+#toast{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--p2);border:1px solid var(--ac);padding:10px 16px;opacity:0;transform:translateY(10px);transition:.2s;pointer-events:none;z-index:9}
+#toast.on{opacity:1;transform:none}
+.empty{padding:28px;text-align:center;color:var(--mut);border:1px dashed var(--line)}
+@media(prefers-reduced-motion:no-preference){.hero h1{animation:in .7s ease-out both}@keyframes in{from{opacity:0;transform:translateY(12px)}}}
+</style></head><body>
+<div class="banner">Prototype with sample data. Nothing here is saved or connected to Supabase yet.</div>
+<nav><a href="#home" class="logo">e<b>X</b>ile Community</a>
+<div class="sw" id="sw"><a href="#guild/exile" class="ex">eXile</a><a href="#guild/sakalam" class="sk">Sakalam</a><a href="#community" class="co">Community</a></div>
+<span class="sp"></span>
+<label class="role">Times in <select id="tz" aria-label="Time zone"></select></label>
+<label class="role">Viewing as <select id="role"><option value="member">Member</option><option value="officer">Officer</option></select></label></nav>
+<main id="app"></main><div id="toast" role="status"></div>
+<dialog id="dlg"></dialog>
+<script>
+const $=s=>document.querySelector(s),G={exile:{n:"eXile",t:"Main Guild",d:"The core roster. Boss rotations, Mining War lines and Faction War pushes start here.",c:"ex"},sakalam:{n:"Sakalam",t:"Secondary Guild",d:"The growth roster. Newer players train for raids and feed into eXile's ranks.",c:"sk"}};
+const CL=["Demolisher","Technician","Dreadnaught","Phantom","Arbiter","Enforcer","Psypher","Punisher"],RK=["Leader","Officer","Elite","Member"];
+const nm={exile:["Valkyr","NovaStrike","IronVeil","Kaelen","Zephyra","Drax","Orion","Lyra","Mako","Vex","Sable","Torque"],sakalam:["Rook","Echo","Cinder","Halo","Tarn","Wisp","Brisk","Onyx","Fable","Quill","Rune","Dusk"]};
+let M=[],id=0;
+for(const g in nm)nm[g].forEach((n,i)=>{const cp=Math.round((g=="exile"?980000:640000)-i*(g=="exile"?58000:36000)+((i*7919)%9000));M.push({id:++id,g,name:n,cls:CL[(i+id)%8],lvl:60-i%6,cp,prev:cp-((i*3137)%24000)+6000,rank:RK[i<1?0:i<3?1:i<6?2:3],att:96-((i*13)%38),loot:(i*5)%4,pd:(i*3)%3,join:`2025-0${1+i%9}-1${i%9}`})});
+const ME=2;/* "you" = NovaStrike in eXile */
+let I=[{id:1,g:"exile",name:"Dread Core Plate",icon:"🛡",rar:"Legendary",src:"World Boss – Kerberos",cl:[1,2,3,5,6]},{id:2,g:"exile",name:"Arc Pulse Rifle +3",icon:"🔫",rar:"Epic",src:"World Boss – Kerberos",cl:[2,4,7]},{id:3,g:"exile",name:"Ion Shard Boots",icon:"👢",rar:"Rare",src:"Guild Raid",cl:[]},{id:4,g:"sakalam",name:"Void Lens Helm",icon:"⛑",rar:"Epic",src:"Raid – Gate 4",cl:[13,15,16]},{id:5,g:"sakalam",name:"Plasma Gauntlets",icon:"🧤",rar:"Rare",src:"Raid – Gate 4",cl:[14,17]}];
+const PD=[{g:"exile",item:"Tempest Blade +5",rar:"Epic",owner:1,int:[3,5]},{g:"exile",item:"Nano Cloak +2",rar:"Rare",owner:4,int:[6]},{g:"sakalam",item:"Slate Visor +1",rar:"Rare",owner:13,int:[]}];
+const AN=[{t:"Kerberos spawns Saturday 20:00 server time",g:"all",p:1,a:"Valkyr"},{t:"eXile: Mining War roster locks Friday",g:"exile",p:0,a:"Valkyr"},{t:"Sakalam: raid training night, Wednesday",g:"sakalam",p:0,a:"Rook"}];
+const EV=[{id:1,type:"World Boss",att:{},n:"World Boss – Kerberos",ts:Date.UTC(2026,10,7,20,0),g:"all"},{id:2,type:"Mining War",att:{},n:"Mining War",ts:Date.UTC(2026,10,8,19,0),g:"exile"},{id:3,type:"Raid",att:{},n:"Raid – Gate 4",ts:Date.UTC(2026,10,4,21,0),g:"sakalam"}];
+let TZ="local";const ZL={local:"My time zone ("+Intl.DateTimeFormat().resolvedOptions().timeZone.replace("_"," ")+")",UTC:"UTC","America/Edmonton":"Mountain (Calgary)","America/New_York":"US Eastern","America/Los_Angeles":"US Pacific","Europe/London":"UK","Europe/Berlin":"Central Europe","Asia/Dubai":"Dubai","Asia/Manila":"Philippines","Asia/Singapore":"Singapore","Australia/Sydney":"Sydney"};
+function fmtT(ts,z=TZ){return new Intl.DateTimeFormat("en",{weekday:"short",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false,timeZone:z=="local"?undefined:z,timeZoneName:"short"}).format(ts)}
+function toTs(v,z){if(z=="local")return new Date(v).getTime();const[a,t]=v.split("T"),[Y,Mo,D]=a.split("-").map(Number),[h,mi]=t.split(":").map(Number),w=Date.UTC(Y,Mo-1,D,h,mi);let g=w;for(let k=0;k<2;k++){const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:z,hourCycle:"h23",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric"}).formatToParts(g).map(x=>[x.type,+x.value]));g=w-(Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute)-g)}return g}
+function rel(ts){const m=Math.round((ts-Date.now())/6e4);if(m<=0)return"";const d=Math.floor(m/1440),h=Math.floor(m%1440/60);return d?`in ${d}d ${h}h`:h?`in ${h}h ${m%60}m`:`in ${m}m`}
+const by=i=>M.find(m=>m.id==i),fmt=n=>n.toLocaleString(),sum=a=>a.reduce((x,y)=>x+y,0);
+const gm=g=>M.filter(m=>m.g==g),stats=g=>{const a=gm(g);return{n:a.length,max:Math.max(...a.map(m=>m.cp)),avg:Math.round(sum(a.map(m=>m.cp))/a.length),tot:sum(a.map(m=>m.cp))}};
+const officer=()=>$("#role").value=="officer",av=m=>`<span class="av">${m.name[0]}</span>`;
+let tab="overview",q="",cf="",sortDir=-1;
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");setTimeout(()=>e.classList.remove("on"),2200)}
+function tag(a){return a.p?'<span class="tag pin">Pinned</span> ':''}
+function ann(g){const l=AN.filter(a=>g==null||a.g=="all"||a.g==g);return l.length?l.map(a=>`<div style="margin-bottom:10px">${tag(a)}<b>${a.t}</b><div class="mut" style="font-size:13px">${a.g=="all"?"Community-wide":G[a.g].n} · ${a.a}</div></div>`).join(""):'<div class="empty">No announcements yet.</div>'}
+function evs(g){return EV.filter(e=>g==null||e.g=="all"||e.g==g).sort((a,b)=>a.ts-b.ts).map(e=>`<div style="margin-bottom:8px"><b>${e.n}</b> <span class="mut">${fmtT(e.ts)} · ${e.g=="all"?"Both guilds":G[e.g].n}</span></div>`).join("")}
+function home(){const tot=sum(M.map(m=>m.cp));
+const cards=Object.keys(G).map(k=>{const s=stats(k),x=G[k];return`<div class="panel gc ${x.c}"><div class="mut">${x.t}</div><h2 class="big">${x.n}</h2><p class="mut">${x.d}</p><div class="stat"><div><small>Members</small><b>${s.n}</b></div><div><small>Top CP</small><b>${fmt(s.max)}</b></div><div><small>Average CP</small><b>${fmt(s.avg)}</b></div></div><a class="btn" href="#guild/${k}">Enter ${x.n}</a></div>`}).join("");
+return`<section class="hero"><h1>RISE TOGETHER.<br>FIGHT AS ONE.</h1><p>eXile Community runs two RF Online Next guilds from one command center: rosters, attendance, rankings and fair loot.</p><a class="btn" href="#guild/exile">Open eXile</a> <a class="btn ghost" href="#community">Community rankings</a></section>
+<div class="grid g3" style="margin-top:16px"><div class="panel"><small class="mut">Community combat power</small><div class="big" style="font-size:28px;font-weight:700">${fmt(tot)}</div></div><div class="panel"><small class="mut">Members</small><div style="font-size:28px;font-weight:700">${M.length}</div></div><div class="panel"><small class="mut">Pending loot claims</small><div style="font-size:28px;font-weight:700">${sum(I.filter(i=>!i.aw).map(i=>i.cl.length))}</div></div></div>
+<h2 class="sec">Choose your guild</h2><div class="grid g2">${cards}</div>
+<div class="grid g2"><div><h2 class="sec">Announcements</h2><div class="panel">${ann()}</div></div><div><h2 class="sec">Upcoming events</h2><div class="panel">${evs()}</div></div></div>`}
+function board(list,showG){const s=[...list].sort((a,b)=>b.cp-a.cp);return`<div class="tw"><table><tr><th>#</th><th>Character</th>${showG?"<th>Guild</th>":""}<th>Class</th><th>CP</th><th>Growth</th></tr>${s.map((m,i)=>{const d=m.cp-m.prev;return`<tr class="${i<3?"top"+(i+1):""}"><td>${i+1}</td><td>${av(m)}${m.name}</td>${showG?`<td>${G[m.g].n}</td>`:""}<td>${m.cls}</td><td><b>${fmt(m.cp)}</b></td><td class="${d>=0?"up":"dn"}">${d>=0?"▲":"▼"} ${fmt(Math.abs(d))}</td></tr>`}).join("")}</table></div>`}
+function members(g){let l=gm(g).filter(m=>m.name.toLowerCase().includes(q.toLowerCase())&&(!cf||m.cls==cf));l.sort((a,b)=>(a.cp-b.cp)*sortDir);
+return`<div class="bar"><input id="q" placeholder="Search characters" value="${q}" aria-label="Search"><select id="cf"><option value="">All classes</option>${CL.map(c=>`<option ${cf==c?"selected":""}>${c}</option>`).join("")}</select><button class="btn ghost sm" id="sd">CP ${sortDir<0?"high to low":"low to high"}</button></div>`+(l.length?`<div class="tw"><table><tr><th>Character</th><th>Class</th><th>Lv</th><th>CP</th><th>Rank</th><th>Attendance</th><th>Rewards</th>${officer()?"<th>Wishlist</th><th></th>":""}</tr>${l.map(m=>`<tr><td>${av(m)}${m.name}</td><td>${m.cls}</td><td>${m.lvl}</td><td><b>${fmt(m.cp)}</b></td><td>${m.rank}</td><td>${pct(m)}%</td><td>${m.loot} loot · ${m.pd} pass-down</td>${officer()?`<td>${(WISH[m.id]||[]).join(", ")||'<span class="mut">None</span>'}</td><td><button class="btn sm ghost" data-edit="${m.id}">Edit</button></td>`:""}</tr>`).join("")}</table></div>`:'<div class="empty">No members match. Clear the search or class filter.</div>')}
+function loot(g){const its=I.filter(i=>i.g==g),mine=by(ME);
+let h=its.map(i=>{const aw=i.aw?by(i.aw):null,claimed=i.cl.includes(ME),elig=mine.g==g&&canClaim(i);
+return`<div class="panel" style="margin-bottom:12px"><div class="item"><div class="ic">${i.icon}</div><div class="in"><b>${i.name}</b> <span class="rar ${i.rar}">${i.rar}</span><div class="mut" style="font-size:13px">${i.type?i.type+" · ":""}${i.enh?"+"+i.enh+" · ":""}${i.src} · ${i.cl.length} claim${i.cl.length==1?"":"s"}${i.notes?" · "+i.notes:""}</div>${officer()?`<div class="mut" style="font-size:12px">Wishlisted by: ${wl(wishers(i.name,g,i.src))}</div>`:""}</div>
+${aw?`<span class="st Awarded">Awarded to ${aw.name}</span>`:officer()?`<button class="btn sm" data-rev="${i.id}" ${i.cl.length?"":"disabled"}>Review claims</button>`:elig?`<button class="btn sm ${claimed?"ghost":""}" data-claim="${i.id}">${claimed?"Withdraw claim":"I NEED THIS ITEM"}</button>`:'<span class="mut">Not eligible</span>'}</div><div id="rev${i.id}"></div></div>`}).join("")||'<div class="empty">No loot recorded for this guild.</div>';
+const pd=PD.map((p,x)=>[p,x]).filter(([p])=>p.g==g).map(([p,x])=>{const o=by(p.owner),mine=p.owner==ME,int=p.int.includes(ME),open=(p.status||"Available")=="Available";return`<tr><td>${p.item} <span class="rar ${p.rar}">${p.rar}</span><div class="mut" style="font-size:12px">${p.type||""}${p.enh?" · +"+p.enh:""}${p.notes?" · "+p.notes:""}</div></td><td>${o.name} (${fmt(o.cp)})</td><td>${p.int.map(i=>by(i).name+" ("+fmt(by(i).cp)+")").join(", ")||"None yet"}</td><td><span class="st">${p.status||"Available"}</span>${p.to?" to "+by(p.to).name:""}</td><td>${officer()?(open&&p.int.length?`<button class="btn sm" data-pdr="${x}">Review interest</button>`:""):!open?"":mine?`<button class="btn sm ghost" data-pdw="${x}">Withdraw</button>`:by(ME).g==g?`<button class="btn sm ${int?"ghost":""}" data-pdi="${x}">${int?"Remove interest":"I'm interested"}</button>`:""}</td></tr>`}).join("");
+return`${officer()?'<button class="btn sm" data-addloot="1" style="margin-bottom:12px">Add loot</button>':""}${!officer()&&by(ME).g==g?wlPanel():""}<h3>Guild loot</h3><p class="mut">Only confirmed event participants can claim. Officers choose the winner; CP is a guide, not an automatic rule.</p>${h}<h3 style="margin-top:24px">Pass-down board</h3>${!officer()&&by(ME).g==g?'<button class="btn sm" data-addpd="1" style="margin-bottom:12px">List an item to pass down</button>':""}${pd?`<div class="tw"><table><tr><th>Item</th><th>Owner (CP)</th><th>Interested (CP)</th><th>Status</th><th></th></tr>${pd}</table></div><div id="pdrev"></div>`:'<div class="empty">No pass-downs listed yet. Members can list gear they are willing to hand down.</div>'}`}
+function review(id){const i=I.find(x=>x.id==id),el=$("#rev"+id);if(el.innerHTML){el.innerHTML="";return}
+const rows=i.cl.map(by).sort((a,b)=>b.cp-a.cp).map((m,k)=>`<tr><td><input type="radio" name="w${id}" value="${m.id}" ${k?"":""} aria-label="Select ${m.name}"></td><td>${m.name}</td><td>${fmt(m.cp)}</td><td>${pct(m)}%</td><td>${m.loot}</td><td>${m.pd}</td><td>${m.loot+m.pd}</td></tr>`).join("");
+el.innerHTML=`<div class="tw" style="margin-top:12px"><table><tr><th></th><th>Character</th><th>CP</th><th>Attendance</th><th>Loot</th><th>Pass-down</th><th>Total</th></tr>${rows}</table></div><textarea id="n${id}" rows="2" style="width:100%;margin:8px 0" placeholder="Decision notes"></textarea><button class="btn sm" data-aw="${id}">Continue to confirmation</button>`}
+function confirmAward(id){const w=document.querySelector(`input[name=w${id}]:checked`);if(!w)return toast("Select a recipient first");const i=I.find(x=>x.id==id),m=by(+w.value),n=$("#n"+id).value||"None";
+$("#dlg").innerHTML=`<h3>Confirm distribution</h3><p><b>${i.name}</b> to <b>${m.name}</b></p><p class="mut">Type: Guild Loot · Source: ${i.src}<br>Recipient CP: ${fmt(m.cp)}<br>Approving officer: You (Officer)<br>Notes: ${n}</p><button class="btn" id="ok">Award item</button> <button class="btn ghost" id="no">Cancel</button>`;$("#dlg").showModal();
+$("#no").onclick=()=>$("#dlg").close();$("#ok").onclick=()=>{if(i.aw)return;i.aw=m.id;m.loot++;$("#dlg").close();toast("Awarded "+i.name+" to "+m.name);render()}}
+function editMember(id){const m=by(id);
+$("#dlg").innerHTML=`<h3>Update ${m.name}</h3><p class="mut">Current: level ${m.lvl}, CP ${fmt(m.cp)}</p><label>Level<br><input id="el" type="number" min="1" max="99" value="${m.lvl}" style="width:100%;margin-bottom:10px;background:var(--p2);border:1px solid var(--line);padding:7px"></label><label>Combat Power<br><input id="ec" type="number" min="0" value="${m.cp}" style="width:100%;background:var(--p2);border:1px solid var(--line);padding:7px"></label><p id="ee" class="dn" style="min-height:20px"></p><button class="btn" id="es">Save changes</button> <button class="btn ghost" id="ex">Cancel</button>`;$("#dlg").showModal();
+$("#ex").onclick=()=>$("#dlg").close();
+$("#es").onclick=()=>{const l=parseInt($("#el").value),c=parseInt($("#ec").value);if(!(l>=1&&l<=99))return $("#ee").textContent="Level must be a whole number from 1 to 99.";if(!(c>=0))return $("#ee").textContent="Combat Power must be a number, 0 or higher.";if(c!=m.cp)m.prev=m.cp;m.cp=c;m.lvl=l;$("#dlg").close();toast("Saved "+m.name+": level "+l+", CP "+fmt(c));render()}}
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function addLoot(g){const ev=EV.filter(e=>e.g==g||e.g=="all");
+$("#dlg").innerHTML=`<h3>Add loot to ${G[g].n}</h3><label>Item name<br><input id="ln" class="fi"></label><div style="display:flex;gap:10px"><label style="flex:1">Rarity<br><select id="lr" class="fi"><option>Rare</option><option>Epic</option><option>Legendary</option></select></label><label style="flex:1">Type<br><select id="lt" class="fi">${["Weapon","Armor","Accessory","Material","Other"].map(t=>`<option>${t}</option>`).join("")}</select></label></div><div style="display:flex;gap:10px"><label style="flex:1">Enhancement level<br><input id="le" type="number" min="0" max="20" value="0" class="fi"></label><label style="flex:1">Quantity<br><input id="lq" type="number" min="1" max="10" value="1" class="fi"></label></div><label>Source event<br><select id="ls" class="fi">${ev.map(e=>`<option>${e.n}</option>`).join("")}<option>Other</option></select></label><div id="lw" class="mut" style="font-size:13px;margin-bottom:8px"></div><label>Notes<br><input id="lo" class="fi"></label><p id="lx" class="dn" style="min-height:20px"></p><button class="btn" id="l1">Add item</button> <button class="btn ghost" id="l2">Add and keep adding</button> <button class="btn ghost" id="l3">Cancel</button>`;
+$("#dlg").showModal();$("#l3").onclick=()=>$("#dlg").close();
+const up=()=>{const n=$("#ln").value.trim();$("#lw").textContent=n?"Eligible wishlist players: "+wl(wishers(n,g,$("#ls").value)):""};$("#ln").oninput=up;$("#ls").onchange=up;
+const go=more=>{const n=$("#ln").value.trim(),q=parseInt($("#lq").value),e=parseInt($("#le").value);if(!n)return $("#lx").textContent="Enter an item name.";if(!(q>=1&&q<=10))return $("#lx").textContent="Quantity must be 1 to 10.";if(!(e>=0&&e<=20))return $("#lx").textContent="Enhancement level must be 0 to 20.";
+const t=$("#lt").value,ic={Weapon:"🔫",Armor:"🛡",Accessory:"💍",Material:"🔩",Other:"📦"}[t];
+for(let k=0;k<q;k++)I.push({id:Date.now()+k,g,name:esc(n),icon:ic,rar:$("#lr").value,type:t,enh:e,src:$("#ls").value,notes:esc($("#lo").value),cl:[]});
+toast("Added "+q+" × "+n+" · "+wishers(n,g,$("#ls").value).length+" wishlisted");if(more){$("#ln").value="";up();$("#lx").textContent="";$("#ln").focus()}else{$("#dlg").close()}render()};
+$("#l1").onclick=()=>go(false);$("#l2").onclick=()=>go(true)}
+function addPD(){const g=by(ME).g;
+$("#dlg").innerHTML=`<h3>List an item to pass down</h3><p class="mut">You can withdraw it any time before an officer approves a transfer.</p><label>Item name<br><input id="pn" class="fi"></label><div style="display:flex;gap:10px"><label style="flex:1">Rarity<br><select id="pr" class="fi"><option>Rare</option><option>Epic</option><option>Legendary</option></select></label><label style="flex:1">Type<br><select id="pt" class="fi">${["Weapon","Armor","Accessory","Material","Other"].map(t=>`<option>${t}</option>`).join("")}</select></label></div><label>Enhancement level<br><input id="pe" type="number" min="0" max="20" value="0" class="fi"></label><label>Notes<br><input id="po" class="fi"></label><p id="px" class="dn" style="min-height:20px"></p><button class="btn" id="p1">List item</button> <button class="btn ghost" id="p2">Cancel</button>`;$("#dlg").showModal();
+$("#p2").onclick=()=>$("#dlg").close();
+$("#p1").onclick=()=>{const n=$("#pn").value.trim(),e=parseInt($("#pe").value);if(!n)return $("#px").textContent="Enter an item name.";if(!(e>=0&&e<=20))return $("#px").textContent="Enhancement level must be 0 to 20.";PD.push({g,item:esc(n),rar:$("#pr").value,owner:ME,int:[],status:"Available",type:$("#pt").value,enh:e,notes:esc($("#po").value)});$("#dlg").close();toast("Listed "+n+" for pass-down");render()}}
+function pdReview(x){const p=PD[x],el=$("#pdrev"),o=by(p.owner);
+const rows=p.int.map(by).sort((a,b)=>b.cp-a.cp).map(m=>`<tr><td><input type="radio" name="pdw" value="${m.id}" aria-label="Select ${m.name}"></td><td>${m.name}</td><td>${fmt(m.cp)}</td><td>${pct(m)}%</td><td>${m.loot}</td><td>${m.pd}</td><td>${m.loot+m.pd}</td></tr>`).join("");
+el.innerHTML=`<div class="panel" style="margin-top:12px"><h3>${p.item} from ${o.name} (CP ${fmt(o.cp)})</h3><div class="tw"><table><tr><th></th><th>Character</th><th>CP</th><th>Attendance</th><th>Loot received</th><th>Pass-downs received</th><th>Total</th></tr>${rows}</table></div><textarea id="pdn" rows="2" style="width:100%;margin:8px 0" placeholder="Decision notes"></textarea><button class="btn sm" id="pdgo">Continue to confirmation</button> <button class="btn sm ghost" id="pdx">Close</button></div>`;
+el.scrollIntoView({block:"nearest"});
+$("#pdx").onclick=()=>el.innerHTML="";
+$("#pdgo").onclick=()=>{const w=document.querySelector("input[name=pdw]:checked");if(!w)return toast("Select a recipient first");const m=by(+w.value),n=esc($("#pdn").value||"None");
+$("#dlg").innerHTML=`<h3>Confirm pass-down</h3><p><b>${p.item}</b> from <b>${o.name}</b> to <b>${m.name}</b></p><p class="mut">Type: Pass-Down<br>Previous owner: ${o.name} (CP ${fmt(o.cp)})<br>Recipient CP: ${fmt(m.cp)}<br>Approving officer: You (Officer)<br>Notes: ${n}</p><button class="btn" id="pok">Approve transfer</button> <button class="btn ghost" id="pno">Cancel</button>`;$("#dlg").showModal();
+$("#pno").onclick=()=>$("#dlg").close();
+$("#pok").onclick=()=>{if((p.status||"Available")!="Available")return;p.status="Transferred";p.to=m.id;m.pd++;$("#dlg").close();toast(p.item+" transferred to "+m.name);render()}}}
+const WISH={1:["Dread Core Plate"],2:[],3:["Dread Core Plate","Arc Pulse Rifle"],5:["Dread Core Plate"],7:["Arc Pulse Rifle"],13:["Void Lens Helm"],15:["Void Lens Helm","Plasma Gauntlets"]};
+const nz=s=>s.toLowerCase().replace(/\s*\+\d+/g,"").trim();
+const mt=(w,n)=>{w=nz(w);n=nz(n);return w.length>=3&&n.length>=3&&(n.includes(w)||w.includes(n))};
+function wishers(name,g,src){const e=EV.find(x=>x.n==src);return M.filter(m=>m.g==g&&(WISH[m.id]||[]).some(w=>mt(w,name))).filter(m=>!e||!Object.keys(e.att).length||e.att[m.id]=="Present").sort((a,b)=>b.cp-a.cp)}
+const wl=l=>l.length?l.map(m=>m.name+" ("+fmt(m.cp)+")").join(", "):"nobody yet";
+function wlPanel(){const w=WISH[ME]||[];return`<div class="panel" style="margin-bottom:16px"><h3>My wishlist (${w.length}/3)</h3><p class="mut" style="margin-top:0">Name up to 3 items you want. Officers see you as eligible when matching loot is added and you attended the event.</p>${w.map((n,k)=>`<div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px"><span>${n}</span><button class="btn sm ghost" data-wdel="${k}">Remove</button></div>`).join("")}${w.length<3?`<div class="bar" style="margin:8px 0 0"><input id="wn" placeholder="Item name, e.g. Dread Core Plate" aria-label="Wishlist item"><button class="btn sm" id="wadd">Add wish</button></div>`:'<div class="mut">Wishlist full. Remove a wish to add another.</div>'}</div>`}
+function pct(m){let p=0,a=0;EV.forEach(e=>{const s=e.att[m.id];if(s=="Present")p++;if(s=="Absent")a++});return p+a?Math.round(p/(p+a)*100):m.att}
+function canClaim(i){const e=EV.find(x=>x.n==i.src);return!e||!Object.keys(e.att).length||e.att[ME]=="Present"}
+function events(g){const l=EV.filter(e=>e.g==g||e.g=="all").sort((a,b)=>a.ts-b.ts);
+return(officer()?'<button class="btn sm" data-newev="1" style="margin-bottom:12px">Create event</button>':"")+(l.length?l.map(e=>{const my=e.att[ME],n=Object.keys(e.att).length,pr=Object.values(e.att).filter(v=>v=="Present").length;
+return`<div class="panel" style="margin-bottom:12px"><div class="item"><div class="in"><b>${e.n}</b> <span class="tag">${e.type}</span> <span class="tag">${e.g=="all"?"Both guilds":G[e.g].n}</span><div class="mut" style="font-size:13px">${fmtT(e.ts)}${TZ=="UTC"?"":" ("+fmtT(e.ts,"UTC")+")"} · ${n?`Completed · ${pr} of ${n} present`:"Upcoming "+rel(e.ts)}${!officer()&&my?` · You: ${my}`:""}</div></div>${officer()?`<button class="btn sm ghost" data-att="${e.id}">${n?"Edit attendance":"Mark attendance"}</button>`:""}</div></div>`}).join(""):'<div class="empty">No events yet. Officers can create one.</div>')+`<h3 style="margin-top:24px">Attendance rates</h3><div class="tw"><table><tr><th>Character</th><th>Rate</th><th>Events attended</th></tr>${gm(g).sort((a,b)=>pct(b)-pct(a)).map(m=>`<tr><td>${m.name}</td><td>${pct(m)}%</td><td>${EV.filter(e=>e.att[m.id]=="Present").length}</td></tr>`).join("")}</table></div>`}
+function markAtt(id,g){const e=EV.find(x=>x.id==id),r=gm(g);
+$("#dlg").innerHTML=`<h3>${e.n}</h3><p class="mut">${fmtT(e.ts)}. Mark each ${G[g].n} member.</p><div style="max-height:50vh;overflow:auto">${r.map(m=>`<div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px"><span>${m.name}</span><select data-m="${m.id}" aria-label="Status for ${m.name}">${["Present","Absent","Excused"].map(s=>`<option ${(e.att[m.id]||"Absent")==s?"selected":""}>${s}</option>`).join("")}</select></div>`).join("")}</div><p style="margin-top:12px"><button class="btn" id="as">Save attendance</button> <button class="btn ghost" id="ap">Mark all present</button> <button class="btn ghost" id="ad">Delete event</button> <button class="btn ghost" id="ac">Cancel</button></p>`;$("#dlg").showModal();
+$("#ac").onclick=()=>$("#dlg").close();
+$("#ap").onclick=()=>document.querySelectorAll("select[data-m]").forEach(s=>s.value="Present");
+$("#as").onclick=()=>{document.querySelectorAll("select[data-m]").forEach(s=>e.att[s.dataset.m]=s.value);$("#dlg").close();toast("Attendance saved for "+e.n);render()};
+$("#ad").onclick=b=>{const t=b.target;if(t.dataset.s!="1"){t.dataset.s="1";t.textContent="Click again to delete";return}EV.splice(EV.indexOf(e),1);$("#dlg").close();toast("Deleted "+e.n);render()}}
+function newEv(g){$("#dlg").innerHTML=`<h3>Create event</h3><label>Name<br><input id="vn" class="fi"></label><label>Type<br><select id="vt" class="fi">${["World Boss","Guild Boss","Raid","PvP","Mining War","Faction War","Special Event"].map(t=>`<option>${t}</option>`).join("")}</select></label><label>Date and time (${ZL[TZ]})<br><input id="vd" type="datetime-local" class="fi"></label><label>Guild<br><select id="vg" class="fi"><option value="${g}">${G[g].n} only</option><option value="all">Both guilds</option></select></label><p id="ve" class="dn" style="min-height:20px"></p><button class="btn" id="vs">Create event</button> <button class="btn ghost" id="vc">Cancel</button>`;$("#dlg").showModal();
+$("#vc").onclick=()=>$("#dlg").close();
+$("#vs").onclick=()=>{const n=$("#vn").value.trim(),d=$("#vd").value;if(!n)return $("#ve").textContent="Enter an event name.";if(!d)return $("#ve").textContent="Choose a date and time.";EV.push({id:Date.now(),type:$("#vt").value,att:{},n,ts:toTs(d,TZ),g:$("#vg").value});$("#dlg").close();toast("Created event "+n);render()}}
+function guild(k){const x=G[k],s=stats(k);document.body.className=x.c;
+const T={overview:`<div class="grid g2"><div class="panel"><h3>Announcements</h3>${ann(k)}</div><div class="panel"><h3>Events</h3>${evs(k)}</div></div>`,members:members(k),rankings:board(gm(k)),events:events(k),loot:loot(k)};
+return`<h1 style="margin:0">${x.n} <span class="mut" style="font-size:18px">${x.t}</span></h1><div class="stat"><div><small>Members</small><b>${s.n}</b></div><div><small>Top CP</small><b>${fmt(s.max)}</b></div><div><small>Average CP</small><b>${fmt(s.avg)}</b></div><div><small>Total CP</small><b>${fmt(s.tot)}</b></div></div>
+<div class="tabs">${[["overview","Overview"],["members","Members"],["rankings","Rankings"],["events","Events and attendance"],["loot","Loot and pass-downs"]].map(([a,b])=>`<button data-tab="${a}" class="${tab==a?"on":""}">${b}</button>`).join("")}</div>${T[tab]}`}
+function community(){const a=stats("exile"),b=stats("sakalam");
+return`<h1 style="margin:0 0 16px">Community</h1><div class="grid g2"><div class="panel gc ex"><h3>eXile average CP</h3><div class="big">${fmt(a.avg)}</div></div><div class="panel gc sk"><h3>Sakalam average CP</h3><div class="big">${fmt(b.avg)}</div></div></div><div class="panel" style="margin-top:16px"><h3>Discord</h3><p class="mut">Add your invite link here when the real site is wired up.</p></div><h2 class="sec">Overall rankings</h2>${board(M,true)}`}
+function render(){const h=location.hash.slice(1)||"home",[r,p]=h.split("/");document.body.className="";
+document.querySelectorAll("#sw a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+h||(r=="community"&&a.className.includes("co"))));
+$("#app").innerHTML=r=="guild"&&G[p]?guild(p):r=="community"?community():home();
+const g=r=="guild"?p:null;
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+if($("#q")){$("#q").oninput=e=>{q=e.target.value;const pos=q.length;render();const n=$("#q");n.focus();n.setSelectionRange(pos,pos)};$("#cf").onchange=e=>{cf=e.target.value;render()};$("#sd").onclick=()=>{sortDir*=-1;render()}}
+document.querySelectorAll("[data-claim]").forEach(b=>b.onclick=()=>{const i=I.find(x=>x.id==b.dataset.claim);i.cl=i.cl.includes(ME)?i.cl.filter(x=>x!=ME):[...i.cl,ME];toast(i.cl.includes(ME)?"Claim submitted":"Claim withdrawn");render()});
+document.querySelectorAll("[data-rev]").forEach(b=>b.onclick=()=>review(+b.dataset.rev));
+document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editMember(+b.dataset.edit));
+document.querySelectorAll("[data-att]").forEach(b=>b.onclick=()=>markAtt(+b.dataset.att,location.hash.split("/")[1]));
+document.querySelectorAll("[data-newev]").forEach(b=>b.onclick=()=>newEv(location.hash.split("/")[1]));
+document.querySelectorAll("[data-addloot]").forEach(b=>b.onclick=()=>addLoot(location.hash.split("/")[1]));
+document.querySelectorAll("[data-addpd]").forEach(b=>b.onclick=addPD);
+document.querySelectorAll("[data-pdr]").forEach(b=>b.onclick=()=>pdReview(+b.dataset.pdr));
+document.querySelectorAll("[data-wdel]").forEach(b=>b.onclick=()=>{WISH[ME].splice(+b.dataset.wdel,1);toast("Wish removed");render()});
+if($("#wadd")){const add=()=>{const n=$("#wn").value.trim(),w=WISH[ME]=WISH[ME]||[];if(!n)return toast("Enter an item name");if(w.length>=3)return toast("Wishlist is full (3 wishes)");if(w.some(x=>nz(x)==nz(n)))return toast("Already on your wishlist");w.push(esc(n));toast("Added to wishlist");render()};$("#wadd").onclick=add;$("#wn").onkeydown=e=>{if(e.key=="Enter")add()}}
+document.querySelectorAll("[data-pdw]").forEach(b=>b.onclick=()=>{const p=PD.splice(+b.dataset.pdw,1)[0];toast("Withdrew "+p.item);render()});
+document.querySelectorAll("[data-pdi]").forEach(b=>b.onclick=()=>{const p=PD[+b.dataset.pdi],h=p.int.includes(ME);p.int=h?p.int.filter(x=>x!=ME):[...p.int,ME];toast(h?"Interest removed":"Interest sent to the officers");render()});
+}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-aw]");if(t)confirmAward(+t.dataset.aw)});
+window.onhashchange=()=>{tab="overview";q="";cf="";render()};$("#role").onchange=render;$("#tz").innerHTML=Object.entries(ZL).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");$("#tz").onchange=e=>{TZ=e.target.value;render()};render();
+</script></body></html>
